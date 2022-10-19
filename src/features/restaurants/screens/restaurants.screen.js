@@ -14,9 +14,8 @@ padding: ${(props) => props.theme.space[3]};
 `;
 
 const RestaurantListContainer = styled.View`
-flex: 1;
-padding: 16px;
-background-color: blue;
+  flex: 1;
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 export const RestaurantsScreen = () => (
