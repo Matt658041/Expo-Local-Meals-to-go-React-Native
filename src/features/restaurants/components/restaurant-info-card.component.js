@@ -12,15 +12,26 @@ padding: ${(props) => props.theme.space[3]};
 background-color: ${(props) => props.theme.colors.bg.primary}; 
 `;
 
+const Address = styled(Text)`
+  font-family: ${(props) => props.theme.fonts.body};
+  font-size: ${(props) => props.theme.fontSizes.caption};
+`;
 const Title = styled(Text)`
-  padding: ${(props) => props.theme.space[3]};
+  font-family: ${(props) => props.theme.fonts.heading};
+  font-size: ${(props) =>  props.theme.fontSizes.body}; 
   color: ${(props) => props.theme.colors.ui.primary};
 `;
+
+const Info = styled.View`
+padding: ${(props) => props.theme.space[3]};
+`;
+
+
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
     
   const {
-    name = "Baby Freankles",
+    name = "Baby Freankles Fun Party Time",
     icon,
     photos = [
       "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
@@ -31,10 +42,19 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     isClosedTemporarily,
     } = restaurant;
     
-    return <RestaurantCard elevation={5} style={styles.card}>
-        <RestaurantCardCover key={name} style={styles.cover} source={{ uri: photos[0] }} />
-      <Title>{name}</Title>
-  </RestaurantCard>
+    return (
+      <RestaurantCard elevation={5} style={styles.card}>
+        <RestaurantCardCover
+          key={name}
+          style={styles.cover}
+          source={{ uri: photos[0] }}
+        />
+        <Info>
+          <Title>{name}</Title>
+          <Address>{address}</Address>
+        </Info>
+      </RestaurantCard>
+    );
 };
 
 const styles = StyleSheet.create({
