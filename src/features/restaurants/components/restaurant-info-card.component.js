@@ -4,6 +4,7 @@ import { Text, Image, View } from "react-native";
 import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 
+import { Spacer } from "../../../components/spacer/spacer.component";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 
@@ -36,10 +37,12 @@ const Rating = styled.View`
   padding-top: ${(props) => props.theme.space[2]};
   padding-bottom: ${(props) => props.theme.space[2]};
 `;
+
 const Section = styled.View`
   flex-direction: row;
   align-items: center;
 `;
+
 const SectionEnd = styled.View`
   flex: 1;
   flex-direction: row;
@@ -48,12 +51,12 @@ const SectionEnd = styled.View`
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
-    name = "Some Restaurant",
+    name = "Baby Freankles Fun Zone",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
     photos = [
       "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
     ],
-    address = "100 some random street",
+    address = "100 kitty town road",
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
@@ -75,13 +78,15 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
           <SectionEnd>
             {isClosedTemporarily && (
               <Text variant="label" style={{ color: "red" }}>
-                CLOSED TEMPORARILY
+                CLOSED 
               </Text>
             )}
-            <View style={{ paddingLeft: 16 }} />
-            {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-            <View style={{ paddingLeft: 16 }} />
-            <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+            <Spacer position="left" size="large">
+              {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+            </Spacer>
           </SectionEnd>
         </Section>
         <Address>{address}</Address>
