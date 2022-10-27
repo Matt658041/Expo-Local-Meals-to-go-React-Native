@@ -13,12 +13,12 @@ import { RestaurantInfoCard } from "../components/restaurant-info-card.component
 
 const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {
-    padding: 16,
+   padding:16,
   },
 })``;
 
 const Loading = styled(ActivityIndicator)`
-  margin-left: -25px;
+  margin-left: -25%;
 `;
 const LoadingContainer = styled.View`
   position: absolute;
@@ -41,7 +41,11 @@ export const RestaurantsScreen = ({ navigation }) => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
-              onPress={() => navigation.navigate("RestaurantDetail")}
+              onPress={() =>
+                navigation.navigate("RestaurantDetail", {
+                  restaurant: item,
+                })
+              }
             >
               <Spacer position="bottom" size="large">
                 <RestaurantInfoCard restaurant={item} />
