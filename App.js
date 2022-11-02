@@ -1,7 +1,7 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import React, {useState, useEffect} from "react";
 import { ThemeProvider } from "styled-components/native";
-import * as firebase from 'firebase';
+import * as firebase from "firebase"
 import {
   useFonts as useOswald,
   Oswald_400Regular,
@@ -28,6 +28,7 @@ const firebaseConfig = {
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig)
 };
+
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
