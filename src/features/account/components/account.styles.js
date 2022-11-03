@@ -25,4 +25,6 @@ margin-top: ${(props) => props.theme.space[2]};
 
 export const AuthButton = styled(Button).attrs({
     color: colors.brand.primary,
-})``
+})`
+padding: ${(props) => props.theme.space[2]};
+`;

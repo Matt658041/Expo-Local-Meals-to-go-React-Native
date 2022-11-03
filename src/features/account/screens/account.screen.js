@@ -11,7 +11,7 @@ export const AccountScreen = () => {
       mode="contained" onPress={() => console.log('Pressed')}>
     Login
             </AuthButton>
-            <Spacer>
+            <Spacer size="large">
             <AuthButton icon="lock-open-outline"
       mode="contained" onPress={() => console.log('Pressed')}>
     Register
